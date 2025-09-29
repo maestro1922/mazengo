@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mazengo Enterprise - Agricultural Excellence</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <style id="app-style">
+        :root {
+            --primary-green: #4a7c59;
+            --dark-green: #305f40;
+            --light-green: #8cb369;
+            --earth-brown: #89623d;
+            --light-brown: #c1a173;
+            --cream: #f8f7f1;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+            --dark-gray: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-green);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-green);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--dark-green);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            border: 2px solid var(--primary-green);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-green);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-green);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--primary-green);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--dark-gray);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-green);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-green);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('agri.jpg') no-repeat center center/cover;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            vertical-align: middle;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            padding: 2rem;
+        }
+
+        .value-list {
+            margin-top: 2rem;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--light-green);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem;
+            color: var(--white);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* Services Section */
+        #services {
+            background-color: var(--gray);
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 1.5rem;
+        }
+
+        .service-content h3 {
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(74, 124, 89, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Testimonials Section */
+        #testimonials {
+            background-color: var(--gray);
+            position: relative;
+        }
+
+        .testimonials-carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+
+        .testimonial-slide {
+            display: none;
+            text-align: center;
+            padding: 2rem 1rem;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .testimonial-text::before, .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--light-green);
+            position: absolute;
+            opacity: 0.3;
+        }
+
+        .testimonial-text::before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -10px;
+            transform: rotate(180deg);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark-green);
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--earth-brown);
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            left: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        .carousel-btn {
+            background-color: var(--primary-green);
+            color: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background-color: var(--dark-green);
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--light-brown);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background-color: var(--primary-green);
+            transform: scale(1.3);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-green);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-green);
+            outline: none;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-info {
+            padding: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-green);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem;
+            color: var(--white);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            margin-bottom: 0.3rem;
+            color: var(--dark-green);
+        }
+
+        .map-container {
+            margin-top: 2rem;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--light-green);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--cream);
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--light-green);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--light-green);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 2rem;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            .hero-tagline {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 3rem 0;
+            }
+            .hero-content {
+                text-align: center;
+            }
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .slide-in-left.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .slide-in-right.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="nav-container">
+            <div class="logo">
+                <h1> Mwl Mazengo Enterprise</h1>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+                <h1>Cultivating Tomorrow's Harvest</h1>
+                <p class="hero-tagline">Delivering innovative agricultural solutions with a commitment to sustainability, community growth and excellence.</p>
+                <a href="#services" class="btn">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>About Us</h2>
+                <p>Discover our journey and commitment to agricultural excellence</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image" data-aos="fade-right" data-aos-delay="200">
+                    <img src="slide2.webp" alt="About Mazengo Enterprise">
+                </div>
+                <div class="about-text" data-aos="fade-left" data-aos-delay="400">
+                    <h3>Founding Vision</h3>
+                    <p>Mwl Mazengo Enterprises Group Limited was established with a clear vision: to address the pressing challenges faced by communities and provide sustainable solutions. Our founder, motivated by a deep commitment to social responsibility, sought to create an organization that empowers individuals and fosters resilience within communities.</p>
+                                       <P>From the very beginning, our approach has been centered around the communities we serve. We believe that true sustainability comes from understanding local needs and collaborating closely with community members. This philosophy has guided our initiatives and allowed us to make a meaningful impact in various sectors.</P>
+                    <p>Our mission is to enhance agricultural productivity while preserving natural resources for future generations. We believe in empowering farming communities through education, innovation, and sustainable practices.</p>
+
+                    <div class="value-list">
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div>
+                                <h4>Sustainability</h4>
+                                <p>Implementing eco-friendly farming practices that preserve our environment.</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <div>
+                                <h4>Community</h4>
+                                <p>Supporting local farmers and building stronger agricultural communities.</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h4>Innovation</h4>
+                                <p>Embracing new technologies and methods to improve farming efficiency.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+
+    <section id="services">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Services</h2>
+                <p>Showcasing our work and impact in agricultural communities</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="service1.webp" alt="Sustainable Wheat Farm" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3>community needs assessment</h3>
+                        <p>Our team conducts thorough assessments to identify the specific challenges and priorities faced by different communities. We take time to engage directly with local leaders, households, and stakeholders to gather valuable insights and perspectives..</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="service3.webp" alt="Community Garden Project" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3>Implementation Support</h3>
+                        <p>Our experts provide continuous and practical support throughout the implementation phase of the developed strategies. We ensure that every initiative is executed effectively, with close monitoring to track progress and identify challenges early.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="service2.webp" alt="Smart Farming Initiative" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3>Strategic Planning</h3>
+                        <p>We collaborate closely with community leaders to design strategic plans that directly address pressing issues affecting local development. Our planning process is inclusive, ensuring that the voices of different groups within the community are heard and considered.</p>
+                    </div>
+                </div>
+                
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Testimonials</h2>
+                <p>What our clients say about our agricultural services</p>
+            </div>
+            <div class="testimonials-carousel" data-aos="fade-up" data-aos-delay="300">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-text">
+                        <p>Mazengo Enterprise transformed our struggling farm into a productive and sustainable operation. Their expertise in crop management and organic practices resulted in better yields and healthier soil than we've had in decades.</p>
+                    </div>
+                    <div class="testimonial-author">John </div>
+                    <div class="testimonial-role">Large-scale Farmer, Morogoro</div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-text">
+                        <p>The training workshops provided by Mazengo Enterprise equipped our community with valuable knowledge about modern farming techniques. We've seen significant improvements in our crop quality and market access.</p>
+                    </div>
+                    <div class="testimonial-author">Amina </div>
+                    <div class="testimonial-role">Community Leader</div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-text">
+                        <p>Working with Mazengo Enterprise on our sustainable farming initiative has been a game-changer. Their innovative approaches and dedication to environmental conservation align perfectly with our company values.</p>
+                    </div>
+                    <div class="testimonial-author">David </div>
+                    <div class="testimonial-role">CEO, Harvest Ltd</div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-text">
+                        <p>The research collaboration with Mazengo Enterprise yielded valuable insights into drought-resistant crop varieties. Their team's scientific approach and practical knowledge helped us develop solutions for our changing climate.</p>
+                    </div>
+                    <div class="testimonial-author">Sarah </div>
+                    <div class="testimonial-role">Agricultural Researcher</div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="carousel-indicators">
+                    <div class="carousel-dot active" data-slide="0"></div>
+                    <div class="carousel-dot" data-slide="1"></div>
+                    <div class="carousel-dot" data-slide="2"></div>
+                    <div class="carousel-dot" data-slide="3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our agricultural experts</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form" data-aos="fade-right" data-aos-delay="200">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Your Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Your Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info" data-aos="fade-left" data-aos-delay="400">
+                    <h3>Our Contact Information</h3>
+                    <p>Feel free to reach out to us using any of the following contact methods. Our team is ready to assist you with any inquiries.</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p>Head Office, P.o.Box 61 Ngudu ,Kwimba, Block Q No. 184 Ngudu Town Mwanza - Tanzania</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+255754363659/0789062572</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>mmegenterprise@yahoo.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Operating Hours</h4>
+                            <p>Our operational hours are Monday through Friday, from 8:00 AM to 5:00 PM. On Saturday, from 8:00 AM to 1:00 PM.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Mazengo Enterprise</h3>
+                    <p>Dedicated to agricultural excellence and sustainable farming practices since 2010.</p>
+                    <div class="social-links">
+                        <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
+                        <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
+                        <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
+                        <a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025  Mwl Mazengo Enterprise. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--light-green);"></i> for agricultural excellence</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script id="app-script">
+        // Initialize AOS (Animate on Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.getElementById('nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                if (mobileMenu.classList.contains('active')) {
+                    mobileMenu.innerHTML = '<i class="fas fa-times"></i>';
+                } else {
+                    mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+
+            // Navigation link highlighting on scroll
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('.nav-links a');
+            
+            function highlightNavOnScroll() {
+                let scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navItems.forEach(item => {
+                            item.classList.remove('active');
+                            if (item.getAttribute('href') === `#${sectionId}`) {
+                                item.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+
+            // Header scroll effect
+            const header = document.getElementById('header');
+            
+            function headerScrollEffect() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            
+            function handleBackToTop() {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            }
+
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Testimonial carousel
+            let currentSlide = 0;
+            const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const nextBtn = document.querySelector('.next-btn');
+            const prevBtn = document.querySelector('.prev-btn');
+            
+            function showSlide(n) {
+                // Hide all slides
+                testimonialSlides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                // Remove active class from all dots
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                
+                // Display the current slide and activate the corresponding dot
+                testimonialSlides[n].classList.add('active');
+                dots[n].classList.add('active');
+                currentSlide = n;
+            }
+
+            nextBtn.addEventListener('click', function() {
+                currentSlide = (currentSlide + 1) % testimonialSlides.length;
+                showSlide(currentSlide);
+            });
+
+            prevBtn.addEventListener('click', function() {
+                currentSlide = (currentSlide - 1 + testimonialSlides.length) % testimonialSlides.length;
+                showSlide(currentSlide);
+            });
+
+            // Add click event to dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    showSlide(index);
+                });
+            });
+
+            // Auto advance slides
+            let slideInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % testimonialSlides.length;
+                showSlide(currentSlide);
+            }, 5000);
+
+            // Pause auto advance on hover
+            const testimonialCarousel = document.querySelector('.testimonials-carousel');
+            testimonialCarousel.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+
+            testimonialCarousel.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(() => {
+                    currentSlide = (currentSlide + 1) % testimonialSlides.length;
+                    showSlide(currentSlide);
+                }, 5000);
+            });
+
+            // Contact form submission (prototype)
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const nameInput = document.getElementById('name');
+                    const emailInput = document.getElementById('email');
+                    const messageInput = document.getElementById('message');
+                    
+                    // Simple validation
+                    if (nameInput.value && emailInput.value && messageInput.value) {
+                        // Would typically send data to server here
+                        alert("Thank you for your message! .");
+                        contactForm.reset();
+                    }
+                });
+            }
+
+            // Newsletter subscription (prototype)
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const emailInput = newsletterForm.querySelector('input[type="email"]');
+                    
+                    if (emailInput.value) {
+                        alert("Thank you for subscribing to our newsletter! This is a prototype, in the full version you would be added to our mailing list.");
+                        newsletterForm.reset();
+                    }
+                });
+            }
+
+            // Add scroll event listeners
+            window.addEventListener('scroll', highlightNavOnScroll);
+            window.addEventListener('scroll', headerScrollEffect);
+            window.addEventListener('scroll', handleBackToTop);
+
+            // Initial calls to set correct state
+            highlightNavOnScroll();
+            headerScrollEffect();
+            handleBackToTop();
+        });
+    </script>
+</body>
+</html>
